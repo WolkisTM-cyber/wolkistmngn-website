@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WolkisTMngn</title>
+    <meta name="description" content="WolkisTMngn official profile page. Connect on Roblox, Discord (Wolkis0001), Steam, and YouTube.">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#050608">
+    
+    <!-- OpenGraph Social Media Link Preview Tags -->
+    <meta property="og:title" content="WolkisTMngn">
+    <meta property="og:description" content="Connect with WolkisTMngn on Roblox, Discord (Wolkis0001), Steam, and YouTube.">
+    <meta property="og:image" content="profile_avatar.png">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Favicon (Inline Black Roblox SVG) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='25' fill='%23050608'/><path d='M22.5 0L100 22.5L77.5 100L0 77.5L22.5 0ZM42.5 35L35 60L60 67.5L67.5 42.5L42.5 35Z' fill='%23ffffff'/></svg>">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800;900&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-obsidian-only">
+    <!-- Custom Cursor Ring -->
+    <div id="custom-cursor" class="custom-cursor"></div>
+
+    <!-- Custom Obsidian Right-Click Context Menu -->
+    <div id="context-menu" class="context-menu">
+        <div class="context-item" id="ctx-discord">
+            <i class="fa-brands fa-discord"></i>
+            <span>Copy Discord Tag</span>
+        </div>
+        <div class="context-item" id="ctx-roblox">
+            <i class="fa-solid fa-gamepad"></i>
+            <span>Open Roblox Profile</span>
+        </div>
+        <div class="context-item" id="ctx-music">
+            <i class="fa-solid fa-music"></i>
+            <span>Toggle Lo-Fi Radio</span>
+        </div>
+        <div class="context-item" id="ctx-share">
+            <i class="fa-solid fa-share-nodes"></i>
+            <span>Copy Share Link</span>
+        </div>
+    </div>
+
+    <!-- Preloader Overlay -->
+    <div id="preloader" class="preloader">
+        <div class="preloader-spinner"></div>
+    </div>
+
+    <!-- Night Video Background -->
+    <video class="bg-video" id="bg-video" autoplay loop muted playsinline poster="profile_avatar.png">
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-night-sky-with-stars-and-a-nebula-43285-large.mp4" type="video/mp4">
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-lights-of-a-city-at-night-41551-large.mp4" type="video/mp4">
+    </video>
+    <div class="video-overlay" id="video-overlay"></div>
+
+    <!-- Subtle Star Dust & Shooting Stars Canvas -->
+    <canvas id="particles-canvas" class="particles-canvas"></canvas>
+
+    <!-- Top Utility Bar (Pure Obsidian - Music & Share Link Only) -->
+    <div class="top-utility-bar">
+        <!-- Lo-Fi Music Button with Volume Control -->
+        <button class="utility-pill" id="music-btn" aria-label="Toggle Lo-Fi Music" title="Press M to toggle | Scroll to change volume">
+            <i class="fa-solid fa-compact-disc disc-icon" id="music-icon"></i>
+            <span id="music-text">Lo-Fi Radio</span>
+        </button>
+
+        <!-- Share Page Button -->
+        <button class="utility-pill" id="share-btn" aria-label="Share Page Link" title="Press 5 or Click">
+            <i class="fa-solid fa-share-nodes"></i>
+            <span>Share Link</span>
+        </button>
+    </div>
+
+    <!-- Main Content Container with Smooth Fade-In -->
+    <main class="floating-wrapper fade-in-container" id="main-wrapper">
+        
+        <!-- Profile Header -->
+        <header class="header-section">
+            <div class="avatar-container" title="Click Jake! (Or press R to replay intro)">
+                <img src="profile_avatar.png" alt="WolkisTMngn Avatar" class="avatar-img" id="avatar-img">
+                <div class="avatar-halo"></div>
+                <!-- Live Discord Presence Status Indicator Dot -->
+                <span class="status-dot offline" id="status-dot" title="Discord: Checking Status..."></span>
+            </div>
+            
+            <h1 class="profile-title">WolkisTMngn</h1>
+            
+            <!-- Obsidian EU Time, Live Discord Presence & Real Visitor Badge -->
+            <div class="time-badge">
+                <div class="clock-icon-box">
+                    <i class="fa-regular fa-clock clock-pulse"></i>
+                </div>
+                <span id="eu-clock" class="clock-time">--:-- EEST</span>
+                <span class="badge-dot">•</span>
+                <span id="status-text" class="status-label">Offline</span>
+                <span class="badge-dot">•</span>
+                <span class="visits-box" title="Real Profile Visits"><i class="fa-regular fa-eye"></i> <span id="visit-count">...</span></span>
+            </div>
+        </header>
+
+        <!-- Main Social Glass Dock Bar -->
+        <nav class="glass-dock" aria-label="Social Links">
+            
+            <!-- Roblox Direct Icon -->
+            <a href="https://www.roblox.com/search/users?keyword=WolkisTMngn" target="_blank" rel="noopener noreferrer" class="dock-item roblox-item" data-tooltip="Roblox [1]" aria-label="Roblox Profile">
+                <svg class="roblox-svg" viewBox="0 0 100 100">
+                    <path d="M22.5 0L100 22.5L77.5 100L0 77.5L22.5 0ZM42.5 35L35 60L60 67.5L67.5 42.5L42.5 35Z" fill="currentColor"/>
+                </svg>
+                <span class="dock-led"></span>
+            </a>
+
+            <!-- Discord Copy Icon -->
+            <div class="dock-item discord-item" id="discord-btn" data-clipboard="Wolkis0001" role="button" tabindex="0" data-tooltip="Discord [2]" aria-label="Copy Discord Tag">
+                <i class="fa-brands fa-discord"></i>
+                <span class="dock-led"></span>
+            </div>
+
+            <!-- Steam Icon -->
+            <a href="https://steamcommunity.com/search/users/#text=WolkisTMngn" target="_blank" rel="noopener noreferrer" class="dock-item steam-item" data-tooltip="Steam [3]" aria-label="Steam Profile">
+                <i class="fa-brands fa-steam"></i>
+                <span class="dock-led"></span>
+            </a>
+
+            <!-- YouTube Icon -->
+            <a href="https://www.youtube.com/results?search_query=WolkisTMngn" target="_blank" rel="noopener noreferrer" class="dock-item youtube-item" data-tooltip="YouTube [4]" aria-label="YouTube Channel">
+                <i class="fa-brands fa-youtube"></i>
+                <span class="dock-led"></span>
+            </a>
+
+        </nav>
+
+    </main>
+
+    <!-- Hidden Audio Element -->
+    <audio id="lofi-audio" loop preload="metadata">
+        <source src="https://stream.zeno.fm/f3wvbbqmdg8uv" type="audio/mpeg">
+        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Pitch-Black Toast Notification -->
+    <div id="toast" class="toast">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="toast-text">Copied! (Wolkis0001)</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
