@@ -1,0 +1,16 @@
+{
+  "name": "WolkisTMngn Profile",
+  "short_name": "WolkisTMngn",
+  "description": "Official profile links for WolkisTMngn. Connect on Roblox, Discord, Steam, and YouTube.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050608",
+  "theme_color": "#050608",
+  "icons": [
+    {
+      "src": "profile_avatar.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png"
+    }
+  ]
+}
