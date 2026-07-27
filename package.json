@@ -1,0 +1,12 @@
+{
+  "name": "wolkistmngn-website",
+  "version": "1.0.0",
+  "description": "Official WolkisTMngn profile website",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve -p 8080"
+  },
+  "dependencies": {
+    "serve": "^14.2.1"
+  }
+}
